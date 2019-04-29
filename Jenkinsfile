@@ -6,7 +6,7 @@ node('linux') {
 
 	stage('Unit Tests') {    
 
-		git 'https://github.com/tuff1237/java-project.git'
+		git 'https://github.com/haissamk/java-project.git'
 
 		sh 'ant -f test.xml -v'	
 
