@@ -4,7 +4,7 @@ node('linux'){
     stage('Test'){
         git 'https://github.com/haissamk/java-project.git'
         sh 'ant -f test.xml -v'
-        junit 'reports/resutls.xml'
+        junit 'reports/resutl.xml'
     }
     
     stage('Build'){
@@ -18,7 +18,7 @@ node('linux'){
     }
     
     stage('Reports'){
-    withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS User for Jenkins', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+     withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS User for Jenkins', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
     // some block
         
         sh 'aws cloudformation describe-stack-resources --region us-east-1 --stack-name jenkins'
