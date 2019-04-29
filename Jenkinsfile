@@ -4,7 +4,7 @@ node('linux'){
     stage('Test'){
         git 'https://github.com/haissamk/java-project.git'
         sh 'ant -f test.xml -v'
-        junit 'reports/resutl.xml'
+        junit 'reports/result.xml'
     }
     
     stage('Build'){
